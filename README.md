@@ -34,11 +34,11 @@ What density is “good enough” for a viable recommender?
 
 
 ## Methodology
-_1. Sparse Matrix Reduction Algorithm_
-A custom algorithm removes ratings while guaranteeing:
-✔ each user keeps ≥1 rating
-✔ each movie keeps ≥1 rating
-✔ matrix structure remains valid
+__1. Sparse Matrix Reduction Algorithm__  
+A custom algorithm removes ratings while guaranteeing:  
+✔ each user keeps ≥1 rating  
+✔ each movie keeps ≥1 rating  
+✔ matrix structure remains valid  
 This allows controlled sparsity experiments.
 
 _2. Models Compared_
