@@ -1,5 +1,5 @@
 
-📘 Ultra‑Sparse Matrix Factorization Recommender System
+# Ultra‑Sparse Matrix Factorization Recommender System
 A study of Biased Latent Matrix Factorization (BLMF) performance under extreme sparsity
 
 🔍 Overview
