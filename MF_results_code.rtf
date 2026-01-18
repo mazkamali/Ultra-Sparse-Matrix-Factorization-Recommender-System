@@ -1,0 +1,71 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 iteration = 0\
+sparsity_list = [0.00007900,0.00008720,0.00009540,0.00010360,0.00011180,0.00012000,0.00012820,0.00013640,0.00014462,0.00015183]\
+#tags_train_df = None\
+learning_rates_list = [0.001, 0.002, 0.005, 0.01, 0.02]\
+n_factors_list = [5,10, 20,30]\
+regularizations_list = [0.01, 0.05, 0.1]\
+MF_results = \{\}\
+for sparsity in sparsity_list:\
+    for lr in learning_rates_list:\
+        for nf in n_factors_list:\
+            for reg in regularizations_list:\
+\
+                print(f"Running iteration \{iteration\}: "\
+                      f"sparsity=\{sparsity\}, lr=\{lr\}, nf=\{nf\}, reg=\{reg\}")\
+\
+               \
+                MF = MF_Recommender(\
+                    n_factors=nf,\
+                    learning_rate=lr,\
+                    regularization=reg,\
+                    epochs=10,\
+                    batch_size=1024,\
+                    use_bias=True,\
+                    MF_bias=False,\
+                    use_latent_features=True,\
+                    use_content_features=False\
+                )\
+\
+                \
+                updated_sparsity_ratings_df = MF.set_sparsity(ratings_df, sparsity)\
+                ratings_train_df, ratings_test_df = train_test_split(updated_sparsity_ratings_df, test_size = .2, random_state = 158)\
+\
+                \
+\
+                \
+                MF.fit_model(ratings_train_df, tags_df=None)\
+\
+                \
+                results = MF.simple_evaluation(ratings_test_df)\
+                MF.map_movie_to_names(movies_data[['movieId', 'title']])\
+                \
+                pr_results = MF.Precision_And_Recall_At_K(ratings_test_df, ratings_train_df, num_recommendations = 5, relevance_threshold = 2.5, \
+                                                                num_of_examples = 5 )\
+\
+                \
+                MF_results[iteration] = \{\
+                    "sparsity": sparsity,\
+                    "learning_rate": lr,\
+                    "n_factors": nf,\
+                    "regularization": reg,\
+                    "RMSE": results["rmse"],\
+                    "MAE": results["mae"],\
+                    "Bias": results["bias"],\
+                    "Variance": results["variance"],\
+                    "Accuracy_half": results["within_half_star"],\
+                    "Accuracy_one": results["within_one_star"],\
+                    "Coverage": results["coverage"],\
+                    "Avg_Precision": pr_results["avg_precision"],\
+                    "Avg_Recall": pr_results["avg_recall"]\
+                \}\
+\
+                iteration += 1\
+MF_results_df = pd.DataFrame.from_dict(MF_results, orient="index")\
+display(MF_results_df)}
