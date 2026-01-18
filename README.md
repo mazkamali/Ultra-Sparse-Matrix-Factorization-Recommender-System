@@ -2,7 +2,7 @@
 # Ultra‑Sparse Matrix Factorization Recommender System
 A study of Biased Latent Matrix Factorization (BLMF) performance under extreme sparsity
 
-🔍 Overview
+## Overview
 This repository explores how well a Biased Latent Matrix Factorization (BLMF) recommender system performs when trained on extremely sparse rating matrices, using a reduced sample of the MovieLens 32M dataset.
 The goal:
 
@@ -15,7 +15,7 @@ Biased Latent Matrix Factorization (BLMF) implemented via Mini‑Batch SGD
 
 Both are evaluated across 10 progressively sparser datasets while preserving matrix structure (no user/movie loses its final rating).
 
-📁 Dataset
+## Dataset
 Source: MovieLens 32M (GroupLens Research).
 Subset used:
 
@@ -25,7 +25,7 @@ Subset used:
 
 A custom sampling process ran 300 random seeds to find the densest possible 150k‑rating subset.
 
-🧠 Problem Motivation
+## Problem Motivation
 Recommender Systems degrade when data becomes sparse. Smaller companies often lack high‑density datasets; thus this project answers:
 
 How sparse can data become before MF‑based systems stop working?
@@ -33,15 +33,15 @@ Can a lightweight BLMF model outperform a simple Baseline under extreme sparsity
 What density is “good enough” for a viable recommender?
 
 
-🛠 Methodology
-1. Sparse Matrix Reduction Algorithm
+## Methodology
+_1. Sparse Matrix Reduction Algorithm_
 A custom algorithm removes ratings while guaranteeing:
 ✔ each user keeps ≥1 rating
 ✔ each movie keeps ≥1 rating
 ✔ matrix structure remains valid
 This allows controlled sparsity experiments.
 
-2. Models Compared
+_2. Models Compared_
 Baseline Recommender (Regularized Bias Model)
 Predicts ratings using:
 
