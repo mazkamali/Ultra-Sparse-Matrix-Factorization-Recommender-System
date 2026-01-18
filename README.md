@@ -38,28 +38,28 @@ __1. Sparse Matrix Reduction Algorithm__
 A custom algorithm removes ratings while guaranteeing:  
 * each user keeps ≥1 rating  
 * each movie keeps ≥1 rating  
-* matrix structure remains valid  
+* matrix structure remains valid
 This allows controlled sparsity experiments.
 
-_2. Models Compared_
+__2. Models Compared__  
 Baseline Recommender (Regularized Bias Model)
 Predicts ratings using:
 
-Global mean
-User bias
-Movie bias
-L2 regularization
+* Global mean
+* User bias
+* Movie bias
+* L2 regularization
 
-Serves as a simple and interpretable benchmark.
-Biased Latent Matrix Factorization (BLMF)
+Serves as a simple and interpretable benchmark.  
+__Biased Latent Matrix Factorization (BLMF)__ 
 Matrix Factorization with:
 
-Latent dimension K ∈ {5,10,20,30}
-Mini‑Batch SGD optimization
-Tunable learning rate + regularization
-Dot‑product latent interaction terms
+* Latent dimension K ∈ {5,10,20,30}
+* Mini‑Batch SGD optimization
+* Tunable learning rate + regularization
+* Dot‑product latent interaction terms
 
-600 total model variants were trained across sparsity levels.
+__600 total model variants__ were trained across sparsity levels.
 
 3. Evaluation Metrics
 Accuracy Metrics:
