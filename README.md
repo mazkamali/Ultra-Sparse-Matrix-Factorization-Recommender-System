@@ -84,23 +84,25 @@ better synthesized scores
 
 __One exception__  
 At the absolute sparsest density (~0.000137%), Baseline slightly outperformed BLMF—but both models performed poorly.
+
 __At ultra‑sparse densities, Recall > Precision__  
 Because most users had only 1–2 test ratings, Recall naturally inflated.
+
 __Below density ≈0.00007__  
 No model produced reliable recommendations.
 Both accuracy and ranking collapsed.
 
-🧪 Example Model Output
+## Example Model Output
 Even with 0.00152% density, the BLMF model successfully recommended movies that users actually rated in the held‑out test set (e.g., correctly recommending Shawshank Redemption for user 54820).
 
-🌟 Key Insights
+## Key Insights
 
 Lightweight MF models can outperform simple baselines even at extremely low densities.
 But ultra‑sparse data severely limits usefulness, regardless of model.
 For real‑world use, a recommender should enforce a minimum density or minimum user rating count.
 
 
-🚧 Limitations
+## Limitations
 
 58% of users were single‑raters (standard deviation = 0).
 5.88% rated all movies the same (also zero standard deviation).
@@ -108,11 +110,11 @@ Dataset limited to 150k ratings due to memory constraints.
 Extremely sparse matrices can produce unstable behavior.
 
 
-🚀 Future Work
-Potential improvements include:
+## Future Work
+Potential improvements include:  
 
-Scale tests to 500k–1M+ ratings
-Explore implicit feedback (clicks, views)
-Integrate hybrid models using metadata (genre, tags)
-Establish practical density thresholds (e.g., density needed for ≥20% Precision/Recall)
-Compare with modern deep‑learning recommenders
+Scale tests to 500k–1M+ ratings  
+Explore implicit feedback (clicks, views)  
+Integrate hybrid models using metadata (genre, tags)  
+Establish practical density thresholds (e.g., density needed for ≥20% Precision/Recall)  
+Compare with modern deep‑learning recommenders  
