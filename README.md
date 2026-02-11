@@ -61,8 +61,8 @@ Matrix Factorization with:
 
 __600 total model variants__ were trained across sparsity levels.
 
-3. Evaluation Metrics
-Accuracy Metrics:
+__3. Evaluation Metrics__
+__Accuracy Metrics:__
 
 RMSE
 MAE
