@@ -64,29 +64,29 @@ __600 total model variants__ were trained across sparsity levels.
 __3. Evaluation Metrics__  
 __Accuracy Metrics:__
 
-RMSE
-MAE
+RMSE  
+MAE  
 
-Effectiveness Metrics:
+__Effectiveness Metrics:__  
 
-Precision@K
-Recall@K
+Precision@K  
+Recall@K  
 
 Because these metrics are on different scales, a custom synthesized score was developed to combine them fairly.
 
-📊 Results Summary
-✔️ BLMF generally outperforms Baseline
+## Results Summary
+__BLMF generally outperforms Baseline__  
 Across nearly all sparsity levels, BLMF achieves:
 
-lower RMSE & MAE
-higher Recall
-better synthesized scores
+lower RMSE & MAE  
+higher Recall  
+better synthesized scores  
 
-✔️ One exception
+__One exception__  
 At the absolute sparsest density (~0.000137%), Baseline slightly outperformed BLMF—but both models performed poorly.
-✔️ At ultra‑sparse densities, Recall > Precision
+__At ultra‑sparse densities, Recall > Precision__  
 Because most users had only 1–2 test ratings, Recall naturally inflated.
-❌ Below density ≈0.00007
+__Below density ≈0.00007__  
 No model produced reliable recommendations.
 Both accuracy and ranking collapsed.
 
